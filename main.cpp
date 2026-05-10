@@ -34,6 +34,8 @@
 // ------------- CODE -------------
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
@@ -48,6 +50,8 @@ int main(int argc, char* argv[]) {
   char userPlay;
   char computerPlay;
   int computerNumber;
+
+  srand(time(0));
 
   cout << "Welcome to the Rock Paper Scissors game!" << endl;
   cout << "Enter player name: " << endl;
@@ -70,8 +74,7 @@ int main(int argc, char* argv[]) {
     cout << "Invalid play, run the program again!" << endl;
   }
   else {
-    cout << "Enter computer play number (0-2): " << endl;
-    cin >> computerNumber;
+    computerNumber = rand() % 3;
 
     if (computerNumber == 0){
       computerPlay = 'R';
@@ -87,7 +90,7 @@ int main(int argc, char* argv[]) {
     if (userPlay == computerPlay){
       cout << "It's a tie!" << endl;
     }
-    else if ((userplay == 'R' && computerPlay == 'S') || (userPlay == 'P' && computerPlay == 'R') || (userPlay == 'S' && computerPlay == 'P')){
+    else if ((userPlay == 'R' && computerPlay == 'S') || (userPlay == 'P' && computerPlay == 'R') || (userPlay == 'S' && computerPlay == 'P')){
       cout << playerName << " wins!" << endl;
     }
     else {
