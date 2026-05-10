@@ -33,6 +33,7 @@
 
 // ------------- CODE -------------
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -42,7 +43,61 @@ using namespace std;
 // Main function
 // https://en.cppreference.com/w/cpp/language/main_function.html
 int main(int argc, char* argv[]) {
-  cout << "Hello, World!" << endl;
+
+  string playerName;
+  char userPlay;
+  char computerPlay;
+  int computerNumber;
+
+  cout << "Welcome to the Rock Paper Scissors game!" << endl;
+  cout << "Enter player name: " << endl;
+  getline(cin, playerName);
+
+  cout << "What is your play " << playerName << endl;
+  cout << "Enter r, p, or s: " << endl;
+  cin >> userPlay;
+
+  if (userPlay == 'r'){
+    userPlay = 'R';
+  }
+  else if (userPlay == 'p'){
+    userPlay = 'P';
+  }
+  else if (userPlay == 's'){
+    userPlay = 'S';
+  }
+  if (userPlay != 'R' && userPlay != 'P' && userPlay != 'S'){
+    cout << "Invalid play, run the program again!" << endl;
+  }
+  else {
+    cout << "Enter computer play number (0-2): " << endl;
+    cin >> computerNumber;
+
+    if (computerNumber == 0){
+      computerPlay = 'R';
+    }
+    else if (computerNumber == 1){
+      computerPlay = 'P';
+    }
+    else {
+      computerPlay = 'S';
+    }
+    cout << "Computer plays " << computerPlay << endl;
+
+    if (userPlay == computerPlay){
+      cout << "It's a tie!" << endl;
+    }
+    else if ((userplay == 'R' && computerPlay == 'S') || (userPlay == 'P' && computerPlay == 'R') || (userPlay == 'S' && computerPlay == 'P')){
+      cout << playerName << " wins!" << endl;
+    }
+    else {
+      cout << "Computer wins!" << endl;
+    }
+    cout << "Thank you for playing!" << endl;
+    
+  }
+  
+
   return 0;
 }
 
